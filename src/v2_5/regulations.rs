@@ -17,6 +17,7 @@ pub struct Regulations {
     // Flag indicating if this request is subject to the COPPA
     // regulations established by the USA FTC, where 0 = no, 1 = yes.
     #[serde(
+        default,
         skip_serializing_if = "serde_utils::is_false",
         serialize_with = "serde_utils::bool_to_u8",
         deserialize_with = "serde_utils::u8_to_bool"
@@ -44,5 +45,18 @@ mod tests {
         let serialized = serde_json::to_string(&r).unwrap();
 
         assert_eq!(expected, serialized)
+    }
+
+    #[test]
+    fn deserialize_defaults() {
+        let expected = Regulations {
+            coppa: false,
+            ext: None,
+        };
+
+        let serialized = r#"{}"#;
+        let deserialized: Regulations = serde_json::from_str(serialized).unwrap();
+
+        assert_eq!(expected, deserialized)
     }
 }

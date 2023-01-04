@@ -93,6 +93,19 @@ fn brandscreen_response_pc_win_notifadm() {
 }
 
 #[test]
+fn aps() {
+    let request_test_data = include_str!("files/aps/request.json");
+    let response_test_data = include_str!("files/aps/response.json");
+
+    let request = test_v2_5_request_serialization_round_trip(request_test_data);
+    let response = test_v2_5_response_serialization_round_trip(response_test_data);
+
+    // Test some assorted values.
+    assert_eq!(request.id, response.seat_bid[0].bid[0].id);
+    assert_eq!(request.regulations.unwrap().coppa, false);
+}
+
+#[test]
 fn general_files() {
     test_v2_5_request_serialization_round_trip(include_str!(
         "files/rubiconproject/request-app-android-1.json"

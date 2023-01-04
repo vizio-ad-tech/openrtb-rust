@@ -26,6 +26,12 @@ pub enum AuctionType {
     ExchangeSpecific(u32),
 }
 
+impl Default for AuctionType {
+    fn default() -> Self {
+        Self::SecondPricePlus
+    }
+}
+
 // 3.2.1 Object: BidRequest
 //
 // The top-level bid request object contains a globally unique bid request or
@@ -81,7 +87,7 @@ pub struct BidRequest {
     // Auction type, where 1 = First Price, 2 = Second Price Plus.
     // Exchange-specific auction types can be defined using values
     // greater than 500.
-    #[serde(rename = "at")]
+    #[serde(rename = "at", default)]
     pub auction_type: AuctionType,
 
     // Maximum time in milliseconds the exchange allows for bids to
@@ -264,8 +270,7 @@ mod tests {
     fn deserialize_defaults() {
         let serialized = r#"{
             "id": "1234",
-            "imp": [],
-            "at": 2
+            "imp": []
         }"#;
 
         let res = serde_json::from_str(serialized);
