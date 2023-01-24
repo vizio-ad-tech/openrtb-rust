@@ -49,7 +49,7 @@ pub struct BidResponse {
 impl BidResponse {
     pub fn new(id: String) -> BidResponse {
         BidResponse {
-            id: id,
+            id,
             seat_bid: vec![],
             bid_id: None,
             currency: None,

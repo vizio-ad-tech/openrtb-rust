@@ -7,8 +7,8 @@
 // except according to those terms.
 
 use serde;
-use serde_json;
 use serde::de::Visitor;
+use serde_json;
 
 pub type Ext = serde_json::map::Map<String, serde_json::value::Value>;
 

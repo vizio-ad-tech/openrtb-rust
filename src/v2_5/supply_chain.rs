@@ -10,7 +10,7 @@ use serde_utils;
 
 // This object represents both the links in the supply chain as well
 // as an indicator whether or not the supply chain is complete.
-#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
 pub struct SupplyChain {
     // Flag indicating whether the chain contains all nodes
     // involved in the transaction leading back to the owner
@@ -46,7 +46,7 @@ pub struct SupplyChain {
 // This object is associated with a SupplyChain object as an array of nodes.
 // These nodes define the identity of an entity participating in the supply
 // chain of a bid request.
-#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
 pub struct SupplyChainNode {
     // The canonical domain name of the SSP, Exchange, Header Wrapper,
     // etc system that bidders connect to. This may be the operational

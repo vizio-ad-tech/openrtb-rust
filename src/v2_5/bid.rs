@@ -61,9 +61,9 @@ pub struct Bid {
 impl Bid {
     pub fn new(id: String, imp_id: String, price: f64) -> Bid {
         Bid {
-            id: id,
-            imp_id: imp_id,
-            price: price,
+            id,
+            imp_id,
+            price,
             nurl: None,
             burl: None,
             lurl: None,

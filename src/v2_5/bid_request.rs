@@ -19,7 +19,7 @@ use super::site::Site;
 use super::source::Source;
 use super::user::User;
 
-#[derive(Debug, PartialEq, Clone)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub enum AuctionType {
     FirstPrice,
     SecondPricePlus,
@@ -169,7 +169,7 @@ pub struct BidRequest {
 impl BidRequest {
     pub fn new(id: String) -> BidRequest {
         BidRequest {
-            id: id,
+            id,
             imp: vec![],
             site: None,
             app: None,
@@ -193,7 +193,7 @@ impl BidRequest {
     }
 
     pub fn validate(&self) -> bool {
-        self.imp.len() > 0
+        !self.imp.is_empty()
     }
 }
 

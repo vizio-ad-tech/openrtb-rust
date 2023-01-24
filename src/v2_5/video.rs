@@ -9,7 +9,7 @@ use crate::serde_utils;
 // except according to those terms.
 
 /// This object represents an in-stream video impression.
-#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
 pub struct Video {
     /// Content MIME types supported (e.g., “video/x-ms-wmv”,“video/mp4”).
     pub mimes: Vec<String>,

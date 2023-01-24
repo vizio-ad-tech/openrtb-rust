@@ -17,12 +17,12 @@ macro_rules! enum_list_module {
 
         use serde;
 
-        #[derive(Clone, Debug, PartialEq)]
+        #[derive(Clone, Debug, PartialEq, Eq)]
         pub enum $enum_name {
             $($variant_name,)*
         }
 
-        #[derive(Clone, Debug, PartialEq)]
+        #[derive(Clone, Debug, PartialEq, Eq)]
         pub struct IntoEnumError {
             value: $variant_type,
         }
@@ -44,9 +44,9 @@ macro_rules! enum_list_module {
             }
         }
 
-        impl Into<$variant_type> for $enum_name {
-            fn into(self) -> $variant_type {
-                match self {
+        impl From<$enum_name> for $variant_type {
+            fn from(value: $enum_name) -> $variant_type {
+                match value {
                     $( $enum_name::$variant_name => $variant_value, )*
                 }
             }

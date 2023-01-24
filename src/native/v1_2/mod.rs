@@ -8,7 +8,7 @@
 
 use serde_utils;
 
-#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
 pub struct Request {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ver: Option<String>,
@@ -40,7 +40,7 @@ pub struct Request {
     pub ext: Option<serde_utils::Ext>,
 }
 
-#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
 pub struct Asset {
     pub id: u64,
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -57,14 +57,14 @@ pub struct Asset {
     pub ext: Option<serde_utils::Ext>,
 }
 
-#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
 pub struct Title {
     pub len: u64,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ext: Option<serde_utils::Ext>,
 }
 
-#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
 pub struct Image {
     #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
     pub type_: Option<u64>,
@@ -82,13 +82,13 @@ pub struct Image {
     pub ext: Option<serde_utils::Ext>,
 }
 
-#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
 pub struct Video {}
 
-#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
 pub struct Data {}
 
-#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
 pub struct EventTracker {
     pub event: u64,
     pub method: u64,
@@ -96,7 +96,7 @@ pub struct EventTracker {
     pub ext: Option<serde_utils::Ext>,
 }
 
-#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
 pub struct Response {
     pub ver: Option<String>,
     pub assets: Vec<AssetResponse>,
@@ -119,10 +119,10 @@ pub struct Response {
     pub ext: Option<serde_utils::Ext>,
 }
 
-#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
 pub struct DestinationLink {}
 
-#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
 pub struct AssetResponse {
     pub id: Option<u64>,
     pub required: Option<u64>,
@@ -135,10 +135,10 @@ pub struct AssetResponse {
     pub ext: Option<serde_utils::Ext>,
 }
 
-#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
 pub struct TitleResponse {}
 
-#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
 pub struct ImageResponse {
     #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
     pub type_: Option<u64>,
@@ -149,16 +149,16 @@ pub struct ImageResponse {
     pub ext: Option<serde_utils::Ext>,
 }
 
-#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
 pub struct VideoResponse {}
 
-#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
 pub struct DataResponse {}
 
-#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
 pub struct LinkResponse {}
 
-#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
 pub struct EventTrackerResponse {
     pub event: u64,
     pub method: u64,

@@ -10,7 +10,7 @@ use super::category::Category;
 use super::publisher::Publisher;
 use serde_utils;
 
-#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
 pub struct App {
     pub id: String,
 

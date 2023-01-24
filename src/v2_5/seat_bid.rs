@@ -3,7 +3,8 @@ use serde_utils;
 
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
 pub struct SeatBid {
-    pub bid: Vec<Bid>, // todo: require 1+ bid somehow
+    // todo: require 1+ bid somehow
+    pub bid: Vec<Bid>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub seat: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -20,5 +21,11 @@ impl SeatBid {
             group: None,
             ext: None,
         }
+    }
+}
+
+impl Default for SeatBid {
+    fn default() -> Self {
+        Self::new()
     }
 }

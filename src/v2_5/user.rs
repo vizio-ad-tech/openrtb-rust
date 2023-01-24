@@ -9,7 +9,7 @@
 use super::data::Data;
 use serde_utils;
 
-#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
 pub struct User {
     // A DSP's UID for this user (see user matching for format).
     #[serde(rename = "buyeruid", skip_serializing_if = "Option::is_none")]

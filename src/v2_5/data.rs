@@ -10,7 +10,7 @@ use super::segment::Segment;
 use serde_utils;
 
 // This object used by publishers to pass additional attributes about the user or content.
-#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
 pub struct Data {
     // The data extension object that contains community extensions.
     #[serde(skip_serializing_if = "Option::is_none")]

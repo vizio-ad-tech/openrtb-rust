@@ -18,7 +18,7 @@ macro_rules! categories {
     )=> {
         // create enum for each parent category
         $(
-            #[derive(Clone, Debug, PartialEq)]
+            #[derive(Clone, Debug, PartialEq, Eq)]
             pub enum $parent {
                 $parent,  // parent variant
                 $($sub,)* // all subcategories
@@ -26,7 +26,7 @@ macro_rules! categories {
          )*
 
         // wrap parent categories in one enum
-        #[derive(Clone, Debug, PartialEq)]
+        #[derive(Clone, Debug, PartialEq, Eq)]
         pub enum Category {
             $($parent($parent),)*
             Unknown(String),
