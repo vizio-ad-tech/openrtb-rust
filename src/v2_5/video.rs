@@ -9,9 +9,10 @@ use crate::serde_utils;
 // except according to those terms.
 
 /// This object represents an in-stream video impression.
-#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq, Default)]
 pub struct Video {
     /// Content MIME types supported (e.g., “video/x-ms-wmv”,“video/mp4”).
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
     pub mimes: Vec<String>,
     /// Minimum video ad duration in seconds.
     #[serde(skip_serializing_if = "Option::is_none")]

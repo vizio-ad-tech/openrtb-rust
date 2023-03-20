@@ -11,7 +11,7 @@ fn brandscreen_request_mobile() {
 
     // Test some assorted values.
     assert_eq!(request.id, "IxexyLDIIk");
-    assert_eq!(request.auction_type, AuctionType::SecondPricePlus);
+    assert_eq!(request.auction_type, Some(AuctionType::SecondPricePlus));
     assert_eq!(request.user.is_some(), true);
     assert_eq!(request.all_imps, false);
     assert_eq!(request.imp.len(), 1);
@@ -25,7 +25,7 @@ fn brandscreen_request_pc_multi() {
 
     // Test some assorted values.
     assert_eq!(request.id, "8652a8680db33faabbf3fa76150f35df50a67060");
-    assert_eq!(request.auction_type, AuctionType::FirstPrice);
+    assert_eq!(request.auction_type, Some(AuctionType::FirstPrice));
     assert_eq!(request.user.is_some(), true);
     assert_eq!(request.imp.len(), 2);
     assert_eq!(request.imp[0].id, "121-dt1");
@@ -39,7 +39,7 @@ fn brandscreen_request_pc_single() {
 
     // Test some assorted values.
     assert_eq!(request.id, "80ce30c53c16e6ede735f123ef6e32361bfc7b22");
-    assert_eq!(request.auction_type, AuctionType::FirstPrice);
+    assert_eq!(request.auction_type, Some(AuctionType::FirstPrice));
     assert_eq!(request.user.is_some(), true);
     assert_eq!(
         request.user.unwrap().id,

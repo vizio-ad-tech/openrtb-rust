@@ -20,3 +20,15 @@ pub struct Native {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ext: Option<serde_utils::Ext>,
 }
+
+impl Default for Native {
+    fn default() -> Self {
+        Native {
+            request: "".to_string(),
+            ver: None,
+            api: vec![],
+            battr: vec![],
+            ext: None,
+        }
+    }
+}

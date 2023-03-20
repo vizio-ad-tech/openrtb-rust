@@ -88,6 +88,29 @@ pub struct Imp {
     pub ext: Option<serde_utils::Ext>,
 }
 
+impl Default for Imp {
+    fn default() -> Self {
+        Imp {
+            id: "".to_string(),
+            metric: vec![],
+            banner: None,
+            video: None,
+            audio: None,
+            native: None,
+            pmp: None,
+            display_manager: None,
+            display_manager_ver: None,
+            interstitial: None,
+            tag_id: None,
+            bid_floor: None,
+            bid_floor_cur: None,
+            secure: None,
+            exp: None,
+            ext: None,
+        }
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
