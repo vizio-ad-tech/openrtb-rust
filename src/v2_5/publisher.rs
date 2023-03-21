@@ -22,3 +22,15 @@ pub struct Publisher {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ext: Option<serde_utils::Ext>,
 }
+
+impl Default for Publisher {
+    fn default() -> Self {
+        Publisher {
+            id: "".to_string(),
+            name: None,
+            cat: vec![],
+            domain: None,
+            ext: None,
+        }
+    }
+}

@@ -58,6 +58,26 @@ pub struct App {
     pub ext: Option<serde_utils::Ext>,
 }
 
+impl Default for App {
+    fn default() -> Self {
+        App {
+            id: "".to_string(),
+            name: None,
+            bundle: None,
+            domain: None,
+            store_url: None,
+            cat: vec![],
+            section_cat: vec![],
+            page_cat: vec![],
+            ver: None,
+            publisher: None,
+            content: None,
+            keywords: None,
+            ext: None,
+        }
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

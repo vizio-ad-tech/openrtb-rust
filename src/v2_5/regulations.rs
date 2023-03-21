@@ -12,7 +12,7 @@ use serde_utils;
 // that apply to the request. The coppa flag signals whether or not
 // the request falls under the United States Federal Trade Commission’s
 // regulations for the United States Children’s Online Privacy Protection Act (“COPPA”).
-#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq, Default)]
 pub struct Regulations {
     // Flag indicating if this request is subject to the COPPA
     // regulations established by the USA FTC, where 0 = no, 1 = yes.

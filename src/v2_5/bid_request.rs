@@ -87,8 +87,8 @@ pub struct BidRequest {
     // Auction type, where 1 = First Price, 2 = Second Price Plus.
     // Exchange-specific auction types can be defined using values
     // greater than 500.
-    #[serde(rename = "at", default)]
-    pub auction_type: AuctionType,
+    #[serde(rename = "at", skip_serializing_if = "Option::is_none")]
+    pub auction_type: Option<AuctionType>,
 
     // Maximum time in milliseconds the exchange allows for bids to
     // be received including Internet latency to avoid timeout. This
@@ -182,7 +182,7 @@ impl BidRequest {
             device: None,
             user: None,
             test: false,
-            auction_type: AuctionType::FirstPrice,
+            auction_type: None,
             tmax: None,
             seat_whitelist: vec![],
             seat_blocklist: vec![],
@@ -245,7 +245,7 @@ mod tests {
             device: None,
             user: None,
             test: false,
-            auction_type: AuctionType::FirstPrice,
+            auction_type: Some(AuctionType::FirstPrice),
             tmax: None,
             seat_whitelist: vec![],
             seat_blocklist: vec![],
@@ -288,7 +288,7 @@ mod tests {
             device: None,
             user: None,
             test: false,
-            auction_type: AuctionType::SecondPricePlus,
+            auction_type: None,
             tmax: None,
             seat_whitelist: vec![],
             seat_blocklist: vec![],

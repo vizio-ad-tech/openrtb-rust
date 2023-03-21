@@ -8,9 +8,10 @@
 
 use serde_utils;
 
-#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq, Default)]
 pub struct Content {
-    pub id: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     pub episode: Option<i64>,
