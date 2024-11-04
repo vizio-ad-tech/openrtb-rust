@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: vizio-openrtb-rs
+  description: OpenRTB v2.5 and OpenRTB Dynamic Native Ads v1.2 types for rust.
+  annotations:
+    github.com/project-slug: vizio-ad-tech/vizio-openrtb-rs
+    backstage.io/techdocs-ref: dir:.
+  tags:
+    - terraform
+spec:
+  type: utility
+  lifecycle: experimental
+  owner: vizio-ad-tech/vail
+  system: vail
